@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeStyle Furniture</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: beige;
+}
+
+/* NAVBAR */
+nav {
+    background-color: #1E352F;
+    color: #A7D3A9;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 30px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: #b7aa66;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+    nav h1 a {
+    color: #A7D3A9;
+    text-decoration: none;
+}
+/* HERO */
+.hero {
+    background: url('furniture.jpg') no-repeat center/cover;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:30px;
+    font-weight: bold;
+    color: #A0522D;
+    letter-spacing: 1px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    font-family: "Playfair Display", serif;
+    color: #F0E68C; /* ← change this to any color you want */
+}
+
+/* GALLERY */
+.gallery {
+    padding: 40px;
+    text-align: center;
+}
+
+.gallery h2 {
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: calc(25% - 20px);
+    min-width: 220px;
+    background: burlywood;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.gallery h3 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: #555;
+    padding: 0 10px 15px;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+}
+
+    /* POPUP BACKGROUND */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* POPUP BOX */
+.popup-content {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: pop 0.5s ease;
+}
+
+/* IMAGE */
+.popup-content img {
+  width: 100%;
+  max-width: 150px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+/* CLOSE BUTTON */
+.close {
+  display: inline-block;
+  margin-top: 10px;
+  color: red;
+  text-decoration: none;
+}
+
+/* LINK BUTTON */
+.popup-content a.link-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #3e2723;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+    html {
+  scroll-behavior: smooth;
+}
+
+
+/* KEEP PAGE POSITION STABLE */
+.popup:target {
+  display: flex;
+}
+    
+/* MODERN FOOTER */
+.modern-footer {
+    background: #14241f;
+    color: #f5f5dc;
+    padding: 60px 20px 25px;
+    margin-top: 50px;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.footer-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-box h2,
+.footer-box h3 {
+    margin-bottom: 18px;
+    font-family: "Playfair Display", serif;
+    color: #A7D3A9;
+}
+
+.footer-box h2 {
+    font-size: 32px;
+}
+
+.footer-box p {
+    line-height: 1.8;
+    color: #ddd;
+    text-align: left;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #d4b06a;
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    background: #1f3a33;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.social-links a:hover {
+    background: #d4b06a;
+    color: black;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-contact a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: #d4b06a;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .footer-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-box p {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h1><a href="#home">HomeStyle Furniture</a></h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+        
+<!-- HOME -->
+<section id="home" class="home">
+    
+<!-- HERO -->
+<section class="hero">
+    <h2>Explore Beautiful Furniture Designs</h2>
+</section>
+
+<!-- FURNITURE CATEGORIES -->
+<section id="categories" class="gallery">
+    <h2>Furniture Categories</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <a href="#bedroom">
+                <img src="bedroom.jpg">
+                <h3>Bedroom Furniture</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="#dining">
+                <img src="dining area.jpg">
+                <h3>Dining Furniture</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="#livingroom">
+                <img src="living room.jpg">
+                <h3>Living Room Furniture</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="#homedecor">
+                <img src="homedecor.jpg">
+                <h3>Home Decor</h3>
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+    <h2>Furniture Galleries</h2>
+    <!-- BEDROOM -->
+    <h3        id="bedroom">Bedroom Furniture</h3>
+
+    <div class="container">
+
+        <div class="card">
+    <a href="#gaia">
+        <img src="gaia.jpg">
+        <h3>Gaia Bed</h3>
+    </a>
+</div>
+
+        <div class="card">
+            <a href="#jerra">
+            <img src="jerra.jpg">
+            <h3>Jerra Bed</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="#wings">
+            <img src="wings.jpg">
+            <h3>Wings Bed</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+            <a href="#amalfi">
+            <img src="amalfi.jpg">
+            <h3>Amalfi Bed</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+            <a href="#doren">
+            <img src="doren.jpg">
+            <h3>Doren Desk</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+            <a href="#varoa">
+            <img src="varoa.jpg">
+            <h3>Varoa Bed</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+            <a href="#selene">
+            <img src="selene.jpg">
+            <h3>Selene Bed</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+            <a href="#azurea">
+            <img src="azurea.jpg">
+            <h3>Azurea Bed</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#nuvia">
+            <img src="Nuvia.jpg">
+            <h3>Nuvia Desk</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#galaxy">
+            <img src="galaxy.jpg">
+            <h3>Galaxy Bed</h3>
+                </a>
+        </div>
+        
+    </div>
+
+    <!-- Dining -->
+    <h3 id="dining">Dining Furniture</h3>
+
+    <div class="container">
+
+        <div class="card">
+            <a href="#nola">
+            <img src="nola.jpg">
+            <h3>Nola Dining Chair</h3>
+              </a>
+        </div>
+
+        <div class="card">
+            <a href="#como">
+            <img src="como.jpg">
+            <h3>Como Dining Table</h3>
+                </a>
+        </div>
+
+        <div class="card">
+            <a href="#erel">
+            <img src="erel.jpg">
+            <h3>Erel Dining Chair</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#ardan">
+            <img src="ardan.jpg">
+            <h3>Ardan Dining Table</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#nevada">
+            <img src="nevada.jpg">
+            <h3>Nevada Dining Table</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#zenar">
+            <img src="zenar.jpg">
+            <h3>Zenar Dining Chair</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#savu">
+            <img src="savu.jpg">
+            <h3>Savu Dining Table</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#anet">
+            <img src="anet.jpg">
+            <h3>Anet Dining Chair</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#stria">
+            <img src="stria.jpg">
+            <h3>Stria Sideboard</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#vetra">
+            <img src="vetra.jpg">
+            <h3>Vetra Sideboard</h3> 
+                </a>
+        </div>
+        
+    </div>
+
+    <!-- LIVING ROOM -->
+    <h3 id="livingroom">Living Room Furniture</h3>
+
+    <div class="container">
+
+        <div class="card">
+            <a href="#arlo">
+            <img src="arlo.jpg">
+            <h3>Arlo Sofa</h3>
+                </a>
+        </div>
+
+        <div class="card">
+            <a href="#luretta">
+            <img src="luretta.jpg">
+            <h3>Luretta Sofa</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#dune">
+            <img src="dune.jpg">
+            <h3>Dune Sofa</h3>
+            </a>
+        </div>
+        
+        <div class="card">
+    <a href="#stratus">
+        <img src="stratus.jpg">
+        <h3>Stratus Sofa</h3>
+    </a>
+</div>
+        
+        <div class="card">
+            <a href="#vala">
+            <img src="vala.jpg">
+            <h3>Vala Shoerack</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#fredel">
+            <img src="fredel.jpg">
+            <h3>Fredel Media Console</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#ephora">
+            <img src="ephora.jpg">
+            <h3>Ephora Media Console</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#ombre">
+            <img src="ombre.jpg">
+            <h3>Ombre Sofa</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#renz">
+            <img src="renz.jpg">
+            <h3>Renz Accent Table</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#petra">
+            <img src="petra.jpg">
+            <h3>Petra Coffee Table</h3>
+                </a>
+        </div>
+
+    </div>
+
+    <!-- Home Decor -->
+    <h3 id="homedecor">Home Decor</h3>
+
+    <div class="container">
+
+        <div class="card">
+            <a href="#stardust">
+            <img src="stardust.jpg">
+            <h3>Stardust Rug</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#leywe">
+            <img src="leywe.jpg">
+            <h3>Leywe Vase</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#luela">
+            <img src="luela.jpg">
+            <h3>Luela Vase</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#cascades">
+            <img src="cascades.jpg">
+            <h3>Cascades</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#confluence">
+            <img src="confluence.jpg">
+            <h3>Confluence</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#flows">
+            <img src="flows.jpg">
+            <h3>Flows</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#lunar">
+            <img src="lunar.jpg">
+            <h3>Lunar Rug</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#ripple">
+            <img src="ripple.jpg">
+            <h3>Ripple Rug</h3>
+                </a>
+        </div>
+        
+        <div class="card">
+            <a href="#shaw">
+            <img src="shaw.jpg">
+            <h3>Shaw Vase</h3>
+                </a>
+        </div>
+
+        <div class="card">
+            <a href="#hera">
+            <img src="hera.jpg">
+            <h3>Hera Vase</h3>
+                </a>
+        </div>
+
+    </div>
+
+</section> <!-- end gallery -->
+</section> <!-- end home -->
+<!-- POPUP GAIA -->
+<div id="gaia" class="popup">
+  <div class="popup-content">
+    <img src="gaia.jpg" alt="Image 1">
+    <img src="gaia2.jpg" alt="Image 2">
+      <img src="gaia3.jpg" alt="Image 3">
+    <h3>Gaia Bed</h3>
+    <p>Discover the Gaia Bed, the ultimate statement of modern luxury for the bedroom. This frame is a showcase of exceptional craftsmanship, from its genuine top-grain leather upholstery to the intricate quilted details and metallic accents. The Gaia is designed to be a breathtaking and incredibly comfortable retreat for your most restful nights.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/gaia-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+    
+    <!-- POPUP JERRA -->
+        <div id="jerra" class="popup">
+  <div class="popup-content">
+    <img src="jerra.jpg" alt="Image 1">
+    <img src="jerra2.jpg" alt="Image 2">
+      <img src="jerra3.jpg" alt="Image 3">
+    <h3>Jerra Bed</h3>
+    <p>Discover the Jerra Bed Frame, the perfect fusion of natural materials and smart, integrated technology for the modern bedroom. This beautifully crafted bed is made from solid Red Oak and features an innovative headboard that includes ambient lighting and convenient charging, creating a stylish and highly functional centerpiece.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/jerra-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+        </div>
+            
+    <!-- POPUP WINGS -->
+    <div id="wings" class="popup">
+  <div class="popup-content">
+    <img src="wings.jpg" alt="Image 1">
+    <img src="wings2.jpg" alt="Image 2">
+    <h3>Wings Bed</h3>
+    <p>This bed frame is a celebration of dynamic, contemporary design, featuring a stunning curved silhouette and a luxurious, genuine leather headboard. It's a space that is both visually striking and incredibly inviting for a perfect night's rest.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/wings-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+    
+    <!-- POPUP AMALFI -->
+    <div id="amalfi" class="popup">
+  <div class="popup-content">
+    <img src="amalfi.jpg" alt="Image 1">
+    <img src="amalfi2.jpg" alt="Image 2">
+    <h3>Amalfi Bed</h3>
+    <p>This fully upholstered bed frame is distinguished by its stylish channel-tufted headboard and a soft, inviting design. Built upon a durable, solid wood frame, the Amalfi offers the perfect blend of sophisticated style and plush comfort.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/amalfi-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+    
+    <!-- POPUP DOREN -->
+    <div id="doren" class="popup">
+  <div class="popup-content">
+    <img src="doren.jpg" alt="Image 1">
+    <img src="doren2.jpg" alt="Image 2">
+      <img src="doren3.jpg" alt="Image 3">
+    <h3>Doren Desk</h3>
+    <p>This beautifully crafted piece combines the natural strength and warmth of solid Red Oak with a clean, minimalist design. Featuring two integrated drawers for essential storage, it's an ideal choice for anyone seeking a durable, stylish, and uncluttered home office solution.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/doren-desk" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+        
+        <!-- POPUP VAROA -->
+        <div id="varoa" class="popup">
+  <div class="popup-content">
+    <img src="varoa.jpg" alt="Image 1">
+    <img src="varoa2.jpg" alt="Image 2">
+      <img src="varoa3.jpg" alt="Image 3">
+    <h3>Varoa Bed</h3>
+    <p>Discover the Varoa Bed Frame, the ultimate blend of modern minimalist design, premium materials, and smart functionality. Constructed from luxurious solid Black Walnut, this bed is thoughtfully engineered with unique features like an adjustable headboard and discreet storage to enhance the comfort and organization of your bedroom.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/varoa-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+            
+        <!-- POPUP SELENE -->            
+        <div id="selene" class="popup">
+  <div class="popup-content">
+    <img src="selene.jpg" alt="Image 1">
+    <h3>Selene Bed</h3>
+    <p>This beautifully upholstered bed frame is defined by its plush, dual-cushion headboard and a soft, inviting design. Built upon a strong and durable Larch wood frame, the Selene offers the perfect combination of cloud-like comfort and lasting quality.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/selene-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+    
+            <!-- POPUP AZUREA -->
+            <div id="azurea" class="popup">
+  <div class="popup-content">
+    <img src="azurea.jpg" alt="Image 1">
+    <img src="azurea2.jpg" alt="Image 2">
+      <img src="azurea3.jpg" alt="Image 3">
+    <h3>Azurea Bed</h3>
+    <p>This stunning platform bed is designed to be a stylish sanctuary, fully upholstered in genuine top-grain cowhide leather in a captivating deep blue. Its unique, artistically stitched headboard makes it a true statement piece for a sophisticated bedroom.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/azurea-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP NUVIA -->
+            <div id="nuvia" class="popup">
+  <div class="popup-content">
+    <img src="nuvia.jpg" alt="Image 1">
+    <img src="nuvia2.jpg" alt="Image 2">
+      <img src="nuvia3.jpg" alt="Image 3">
+    <h3>Nuvia Desk</h3>
+    <p>Built from premium North American Black Walnut, this desk combines a clean, timeless design with essential functionality. Its sturdy construction and thoughtful details make it the perfect foundation for your home office.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/nuvia-desk" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP GALAXY -->
+            <div id="galaxy" class="popup">
+  <div class="popup-content">
+    <img src="galaxy.jpg" alt="Image 1">
+    <img src="galaxy2.jpg" alt="Image 2">
+    <h3>Galaxy Bed</h3>
+    <p>This stunning platform bed is defined by its expansive, multi-panel headboard and is fully upholstered in genuine top-grain cowhide leather, establishing a strong and serene presence in your bedroom.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/galaxy-bed" target="_blank">View Product</a>
+    <br>
+    <a href="#bedroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP NOLA -->
+            <div id="nola" class="popup">
+  <div class="popup-content">
+    <img src="nola.jpg" alt="Image 1">
+    <img src="nola2.jpg" alt="Image 2">
+      <img src="nola3.jpg" alt="Image 3">
+    <h3>Nola Dining Chair</h3>
+    <p>Introducing the Nola Dining Chair, a comfortable and stylish seating solution that takes a beloved minimalist design and adds a layer of plush cushioning. Crafted from warm North American Red Oak and finished with a soft faux linen seat, this chair is perfect for long, enjoyable dinners and conversations</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/nola-dining-chair" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP COMO -->
+            <div id="como" class="popup">
+  <div class="popup-content">
+    <img src="como.jpg" alt="Image 1">
+    <h3>Como Dining Table</h3>
+    <p>This stunning centerpiece is defined by its authentic marble veneer top and its powerful, sculptural Ash wood legs, creating a sophisticated, high-contrast design that will anchor your dining room in style.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/como-dining-table" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            
+            <!-- POPUP EREL -->
+       <div id="erel" class="popup">
+     <div class="popup-content">
+    <img src="erel.jpg" alt="Image 1">
+    <img src="erel2.jpg" alt="Image 2">
+    <h3>Erel Dining Chair</h3>
+    <p>Discover the Erel Dining Chair, a stunning piece of functional sculpture for your dining room. Designed for those who appreciate bold, contemporary design, its unique enveloping silhouette is crafted for comfort and upholstered in luxurious, high-performance PVC leather, making it a true centerpiece</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/erel-dining-chair" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP ARDAN -->
+            <div id="ardan" class="popup">
+  <div class="popup-content">
+    <img src="ardan.jpg" alt="Image 1">
+    <img src="ardan2.jpg" alt="Image 2">
+      <img src="ardan3.jpg" alt="Image 3">
+    <h3>Ardan Dining Table</h3>
+    <p>Gather your family around the Ardan Dining Table, a beautifully simple and incredibly sturdy centerpiece for your dining room. Crafted entirely from solid North American Red Oak, its classic design and robust construction promise a lifetime of shared meals and cherished memories.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/ardan-dining-table" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP NEVADA -->
+            <div id="nevada" class="popup">
+  <div class="popup-content">
+    <img src="nevada.jpg" alt="Image 1">
+    <img src="nevada2.jpg" alt="Image 2">
+      <img src="nevada3.jpg" alt="Image 3">
+    <h3>Nevada Dining Table</h3>
+    <p>Discover the Nevada Dining Table, a show-stopping blend of modern sculpture and innovative engineering. This table makes entertaining both easy and impressive with a unique rotating mechanism that effortlessly extends the table to accommodate more guests. It's a functional work of art for the contemporary home.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/nevada-dining-table" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP ZENAR -->
+            <div id="zenar" class="popup">
+  <div class="popup-content">
+    <img src="zenar.jpg" alt="Image 1">
+    <h3>Zenar Dining Chair</h3>
+    <p>This elegant piece combines a classic high-back silhouette with the luxurious feel of modern microfiber leather and the warmth of solid Ash wood, making it a stunning choice for any formal dining setting</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/zenar-dining-chair" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP SAVU -->
+            <div id="savu" class="popup">
+  <div class="popup-content">
+    <img src="savu.jpg" alt="Image 1">
+    <img src="savu2.jpg" alt="Image 2">
+      <img src="savu3.jpg" alt="Image 3">
+    <h3>Savu Dining Table</h3>
+    <p>This piece transcends the ordinary with its stunning, architectural pedestal base and luxurious sintered stone top. It is the perfect centerpiece for those who appreciate artistic design, premium materials, and intimate, social dining.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/savu-dining-table" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            <!-- POPUP ANET -->
+            <div id="anet" class="popup">
+  <div class="popup-content">
+    <img src="anet.jpg" alt="Image 1">
+    <img src="anet2.jpg" alt="Image 2">
+      <img src="anet3.jpg" alt="Image 3">
+    <h3>Anet Dining Chair</h3>
+    <p>A stunning centerpiece that blends mid-century inspiration with contemporary elegance. Its unique, sculptural frame is crafted from rich North American Black Walnut and paired with comfortable vegan leather upholstery, creating a sophisticated seat for memorable meals and conversations</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/anet-dining-chair" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            <!-- POPUP STRIA -->
+            <div id="stria" class="popup">
+  <div class="popup-content">
+    <img src="stria.jpg" alt="Image 1">
+    <img src="stria2.jpg" alt="Image 2">
+      <img src="stria3.jpg" alt="Image 3">
+    <h3>Stria Sideboard</h3>
+    <p> This sophisticated storage solution combines the natural warmth of Red Oak with the contemporary elegance of fluted glass, offering a beautiful and organized centerpiece for your dining or living area.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/stria-sideboard" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP VETRA -->
+            <div id="vetra" class="popup">
+  <div class="popup-content">
+    <img src="vetra.jpg" alt="Image 1">
+    <img src="vetra2.jpg" alt="Image 2">
+      <img src="vetra3.jpg" alt="Image 3">
+    <h3>Vetra Sideboard</h3>
+    <p>Discover the ultimate storage solution with the Vetra Sideboard, a masterclass in versatile design. Perfect for a dining area, kitchen, or living room, this piece combines the natural beauty of Ash wood with sophisticated fluted glass and a convenient layout. Choose the tabletop that best suits your style and enjoy a beautifully organized home.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vetra-sideboard" target="_blank">View Product</a>
+    <br>
+    <a href="#dining" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP ARLO -->
+            <div id="arlo" class="popup">
+  <div class="popup-content">
+    <img src="arlo.jpg" alt="Image 1">
+    <img src="arlo2.jpg" alt="Image 2">
+    <h3>Arlo Sofa</h3>
+    <p>Discover the Arlo Sofa, the perfect combination of cozy, retro-inspired texture and modern design. Upholstered in soft corduroy and featuring luxurious down-filled cushions, the Arlo is an irresistibly comfortable spot for relaxing, reading, or conversation. Its compact size and timeless style make it a versatile addition to any home.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/arlo-sofa" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP LURETTA -->
+            <div id="luretta" class="popup">
+  <div class="popup-content">
+    <img src="luretta.jpg" alt="Image 1">
+    <h3>Luretta Sofa</h3>
+    <p>This unique piece is defined by its sculptural silhouette, its cozy Jacquard fabric, and its deep, comfortable design, blending playful artistry with luxurious comfort.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/luretta-sofa" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP DUNE -->
+            <div id="dune" class="popup">
+  <div class="popup-content">
+    <img src="dune.jpg" alt="Image 1">
+    <h3>Dune Sofa</h3>
+    <p>This stunning sofa is defined by its low-slung organic shape, unique textured fabric, and high-quality construction, making it the perfect centerpiece for a relaxed and stylish living space.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/dune-sofa" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP STRATUS -->
+            <div id="stratus" class="popup">
+  <div class="popup-content">
+    <img src="stratus.jpg" alt="Image 1">
+    <img src="stratus2.jpg" alt="Image 2">
+      <img src="stratus3.jpg" alt="Image 3">
+    <h3>Stratus Sofa</h3>
+    <p>This sofa is designed for ultimate relaxation, featuring a stunning dual-material design, incredibly plush cushions, and a chic, elevated profile that will become the centerpiece of your living room.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/stratus-sofa" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP VALA -->
+            <div id="vala" class="popup">
+  <div class="popup-content">
+    <img src="vala.jpg" alt="Image 1">
+    <img src="vala2.jpg" alt="Image 2">
+      <img src="vala3.jpg" alt="Image 3">
+    <h3>Vala Shoerack</h3>
+    <p>This solid oak cabinet offers a hierarchy of storage that keeps your essentials organized and your hallway clear. Its blend of open and closed compartments makes it as much a display piece as it is a functional.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vala-shoerack" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP FREDEL -->
+            <div id="fredel" class="popup">
+  <div class="popup-content">
+    <img src="fredel.jpg" alt="Image 1">
+    <img src="fredel2.jpg" alt="Image 2">
+    <h3>Fredel Media Console</h3>
+    <p>A stunning centerpiece of modern design. Featuring a unique curved silhouette and a luxurious mix of materials, this console offers ample storage and a sophisticated aesthetic that will redefine your entertainment area.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/fredel-media-console" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP EPHORA MEDIA -->
+            <div id="ephora" class="popup">
+  <div class="popup-content">
+    <img src="ephora.jpg" alt="Image 1">
+    <img src="ephora2.jpg" alt="Image 2">
+      <img src="ephora3.jpg" alt="Image 3">
+    <h3>Ephora Media Console</h3>
+    <p>This stunning piece embodies a modern, minimalist aesthetic with its ultra-low profile, premium solid Red Oak construction, and stylish fluted glass doors. It's the perfect centerpiece for a serene and contemporary living room.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/ephora-media-console" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP OMBRE -->
+            <div id="ombre" class="popup">
+  <div class="popup-content">
+    <img src="ombre.jpg" alt="Image 1">
+    <img src="ombre2.jpg" alt="Image 2">
+      <img src="ombre3.jpg" alt="Image 3">
+    <h3>Ombre Sofa</h3>
+    <p>The Ombre Sofa blends soft curves and deep cushioning for ultimate comfort with a modern sculptural design.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/ombre-sofa" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP RENZ -->
+            <div id="renz" class="popup">
+  <div class="popup-content">
+    <img src="renz.jpg" alt="Image 1">
+    <h3>Renz Table Accent</h3>
+    <p>Its clever C-shape design allows it to tuck neatly under your furniture, providing a handy surface exactly where you need it. Built with a durable, industrial-inspired frame, the Renz is the epitome of modern functionality.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/renz-accent-table" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP PETRA -->
+            <div id="petra" class="popup">
+  <div class="popup-content">
+    <img src="petra.jpg" alt="Image 1">
+    <img src="petra2.jpg" alt="Image 2">
+      <img src="petra3.jpg" alt="Image 3">
+    <h3>Petra Coffee Table</h3>
+    <p>The Petra Coffee Table is a professional-grade anchor built to withstand high-traffic living while maintaining a refined, Japandi-inspired silhouette.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/petra-cofee-table" target="_blank">View Product</a>
+    <br>
+    <a href="#livingroom" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP STARDUST -->
+            <div id="stardust" class="popup">
+  <div class="popup-content">
+    <img src="stardust.jpg" alt="Image 1">
+    <img src="stardust2.jpg" alt="Image 2">
+      <img src="stardust3.jpg" alt="Image 3">
+    <h3>Stardust Rug</h3>
+    <p>This rug weaves together the essence of moonlight and starlight into its captivating pattern. The elegant, sweeping arcs on this light-toned rug suggest distant galaxies and shimmering celestial light, creating a focal point that is both calming and wondrous.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/stardust-rug" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP LEYWE -->
+                   <div id="leywe" class="popup">
+  <div class="popup-content">
+    <img src="leywe.jpg" alt="Image 1">
+    <h3>Leywe Vase</h3>
+    <p>This unique ceramic piece features a striking donut shape with a central opening, perfect for showcasing single stems or simply displayed as a sculptural object.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vase-23" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP LUELA -->
+            <div id="luela" class="popup">
+  <div class="popup-content">
+    <img src="luela.jpg" alt="Image 1">
+    <h3>Luela Vase</h3>
+    <p>This unique ceramic vase features an abstract, interlocking double-loop design in a smooth matte white finish.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vase-3" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP CASCADES -->
+            <div id="cascades" class="popup">
+  <div class="popup-content">
+    <img src="cascades.jpg" alt="Image 1">
+    <img src="cascades2.jpg" alt="Image 2">
+    <h3>Cascades</h3>
+    <p>The most abundant flow is born from surrender. The piece captures abundant energy pouring out onto the surface. It is a celebration of the abundant energy that drives every major turning point in the process.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/cascades" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP CONFLUENCE -->
+            <div id="confluence" class="popup">
+  <div class="popup-content">
+    <img src="confluence.jpg" alt="Image 1">
+    <img src="confluence2.jpg" alt="Image 2">
+    <h3>Confluence</h3>
+    <p>It is about trusting the instinct that allows ideas to flow together. Rhythm is achieved when we allow different energies to freely harmonize.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/confluence" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP FLOWS -->
+            <div id="flows" class="popup">
+  <div class="popup-content">
+    <img src="flows.jpg" alt="Image 1">
+    <img src="flows2.jpg" alt="Image 2">
+    <h3>Flows</h3>
+    <p>The piece encapsulates the continuous motion of the inner self, guided by pure intuition and driven by one’s energy.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/flows-1" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP LUNAR -->
+            <div id="lunar" class="popup">
+  <div class="popup-content">
+    <img src="lunar.jpg" alt="Image 1">
+    <img src="lunar2.jpg" alt="Image 2">
+      <img src="lunar3.jpg" alt="Image 3">
+    <h3>Lunar Rug</h3>
+    <p>This beautifully crafted rug features a luxurious tufted pile with a delicate, textured pattern that adds sophistication without overwhelming your space.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/lunar-rug" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP RIPPLE -->
+            <div id="ripple" class="popup">
+  <div class="popup-content">
+    <img src="ripple.jpg" alt="Image 1">
+    <img src="ripple2.jpg" alt="Image 2">
+      <img src="ripple3.jpg" alt="Image 3">
+    <h3>Ripple Rug</h3>
+    <p>The subtle interplay of textures within its wave-like design adds depth and visual interest, making it a perfect centerpiece for your living room, bedroom, or any area where you wish to create a peaceful retreat.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/ripple-rug" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP SHAW -->
+            <div id="shaw" class="popup">
+  <div class="popup-content">
+    <img src="shaw.jpg" alt="Image 1">
+    <h3>Shaw Vase</h3>
+    <p>This piece features a striking faceted, diamond-like base that flows into a smooth, flared neck.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vase-5" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+            
+            <!-- POPUP HERA -->
+            <div id="hera" class="popup">
+  <div class="popup-content">
+    <img src="hera.jpg" alt="Image 1">
+    <h3>Hera Vase</h3>
+    <p>Elevate your space with the Hera Vase. Crafted from ceramic with a smooth matte sage green finish, its unique abstract twisted loop shape makes a captivating statement.</p>
+
+    <a class="link-btn" href="https://maisonglee.co/products/vase-d" target="_blank">View Product</a>
+    <br>
+    <a href="#homedecor" class="close">Close</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact" class="modern-footer">
+
+    <div class="footer-wrapper">
+
+        <!-- BRAND -->
+        <div class="footer-box">
+            <h2><a href="#home" style="color:#A7D3A9; text-decoration:none;">HomeStyle Furniture</a></h2>
+
+            <p>
+                Discover elegant furniture crafted for comfort,
+                luxury, and timeless living. Transform your home
+                into a modern sanctuary with beautifully curated designs.
+            </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-box footer-contact">
+            <h3>Contact Info</h3>
+
+            <p>Email: mikecristoffpino@gmail.com</p>
+
+            <p>Phone: +63 94 129 8856</p>
+
+            <p>Location: Negros Oriental, Philippines</p>
+
+            <p>
+    Facebook:
+    <a href="https://www.facebook.com/share/1E6urBt5o3/" 
+       target="_blank" 
+       style="color: inherit; text-decoration: none;">
+       Mike Cristoff Pino
+    </a>
+</p>
+        </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+        © 2026 HomeStyle Furniture | Crafted with Style & Comfort
+    </div>
+
+</footer>       
+        
+</body> </html>
